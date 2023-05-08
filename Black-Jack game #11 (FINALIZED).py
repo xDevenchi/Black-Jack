@@ -57,9 +57,7 @@ class Hand:
     def adjust_for_ace(self): 
         while self.value > 21 and self.aces: #decreases the aces's value from 11 to 1 to stay under 21
             self.value -= 10 
-            self.aces -= 1
-
-#creating Chips balance for comeptitor           
+            self.aces -= 1        
 
 class Chips:
     
@@ -71,7 +69,7 @@ class Chips:
         self.total += self.bet #add bet when you win
     
     def lose_bet(self):
-        self.total -+ self.bet #subtract bet when you lose
+        self.total -= self.bet #subtract bet when you lose
 
 def take_bet(chips): #function for the program to receive bets from the player
     while True:      #prompts the user for an reasonable integer 
@@ -142,6 +140,8 @@ def push(player,dealer): #function for a tied game
 
 #GAME STARTS
 while True:
+    answer = input("Are you sure you want to play\nLuigi's BlackJack?\nEnter 'y' or 'n': ")
+    if answer == "y":
             print("Welcome to Luigi's Blackjack game!\nIt is an easy game, but hard to master!\nAim to get close to 21\nwithout going above 21!\nLuigi is your dealer!") #prints welcome message to player
     
             deck = Deck() #creates Deck
@@ -201,4 +201,8 @@ while True:
             else:
                 print("Thank you so much for\nplaying Luigi's BlackJack game!")
                 break
+            
+    elif answer == "n":
+            print("See you later!")
+            exit() #ends the game
     
